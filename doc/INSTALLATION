@@ -25,19 +25,20 @@ Included in this installation:
 INSTALLATION
 ------------
 
-/* 
-    TO BE ADDED: Do we have the user specify the States and ID's in an INI? 
-    crm_contacted=5
-    crm_not_contacted=3
-*/
-
 1. Unpack and install to [ezroot]/extension. 
 
-2. Run the .pkz file to create proper Sales groups, permissions and custom classes.
+# Not supporting this right now... Not tested
+#2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies. (see gh_crm_policies.jpg).
 
-3. Add the extension to the ActiveExtensions[] list in your admin_siteaccess/site.ini under [ExtensionSettings] 
+# Event class already existed with demo content site package - go ahead and replace event class
+3. In the setup tab run the .pkz file to import and create custom classes. (gh_crm_content_classes-1.0-1.ezpkg)
 
-4. Add the extension to the AdditionalSiteDesignList[] in your admin siteaccess site.ini under [DesignSettings].
+4. Add the extension to the ActiveAccessExtensions[] list in your admin_siteaccess/site.ini under [ExtensionSettings] 
+    [ExtensionSettings]
+    ActiveAccessExtensions[]=ghcrm
+
+
+5. Add the extension to the AdditionalSiteDesignList[] in your admin siteaccess site.ini under [DesignSettings].
     NOTE: The extension MUST be first in the list!
     BEFORE:
         AdditionalSiteDesignList[]=admin2
@@ -48,36 +49,36 @@ INSTALLATION
         AdditionalSiteDesignList[]=admin2
         AdditionalSiteDesignList[]=admin
 
-5. Create a "Sales" folder somewhere in your content structure. Note the NodeID of the Sales folder. (NOT the Object ID).
-Set the RootNode to the node id number in ghcrm/settings/content.ini undeer the [CRMNodeSettings] section.
-/* may see if we can create the sales folder one level higher so it doesn't look like content for the website */
+# Was not able to move the Sales folder to one level higher paralell with the Home/Root node.
+6. Create a "Sales" folder somewhere in your content structure. Note the NodeID of the Sales folder. (NOT the Object ID).
+Set the RootNode to the node id number in: 
+        ghcrm/settings/content.ini (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
+        ghcrm/settings/ghcrm.ini (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
+                                                                         EmailTemplateContainerNode=[Root Node Goes Here]
+                                                                         PutNewEntriesHereNode=[Root Node Goes Here]
+        ghcrm/settings/menu.ini (under the URL[] section) - content/view/full/[Root Node Goes Here]
+        ghcrm/settings/override.ini under the [crm_sales] section - Match[node]= [Root Node Goes Here]
 
-6. Clear your caches (ezcache.php --clear-all --purge)
+7. Clear your caches (ezcache.php --clear-all --purge)
 
-7. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
+8. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
 
-8. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
+# Didn't set up Sales group. Using administrator account.
+9. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
 
-/* CRM Email */
-1. Create the CRM Email content class.  (See crm_content_class.jpg)
-    *** Note: Identifier names have to be exact. ***
+/* CRM Workflow and trigger */
 
-2. Create two workflows.
+1. Create two workflows.
     -  Go to the Setup Tab in eZ Publish -> Workflows. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
     *** Note: Workflows have to be exact for email to send. ***
 
-3. Add a trigger.
+2. Add a trigger.
     - Go to the Setup Tab in eZ Publish -> Triggers (workflows must be set up first)
     - Select Multiplexer from the dropdown. (content/publish/after)
 
 /* Steps to send CRM Email */
 1. Create email. Click the Create new button and selected CRM Email from the dropdown.
 
-2. Send for publishing (stores draft)
-
-3. When you are ready to send the email, go back and edit the draft to check the checkbox confirming that you would like to send the email.
+2. You can either Save and Send Later (stores draft for later use), or Send Email Now. 
 
 
-
-
-/* add info for setting up crm email, workflow, db: content classes, permissions, object states, section: CRM Section */
