@@ -8,7 +8,6 @@
      $parent_node_id = ezini( 'CRMNodeSettings', 'RootNode', 'ghcrm.ini' ) 
      $parent_node = fetch( 'content', 'node', hash( 'node_id', $parent_node_id ) )
      $parent_obj_id = $parent_node.contentobject_id
-     $class_id_num = 46
      $contentlanguage_code = "eng-US"}
 
 {* initally sort on the $tab.sort_field, can add support later for more fields/columns to sort on. *}
@@ -47,7 +46,7 @@
             <form method="post" action={"/content/action"|ezurl()}>
                 <input type="hidden" name="ContentNodeID" value="{$new_entries_node}" />
                 <input type="hidden" name="NodeID" value="{$new_entries_node}" />
-                <input type="hidden" name="ClassID" value="{$class_id_num}" />
+                <input type="hidden" name="ClassIdentifier" value="crm_activity" />
                 <input type="hidden" name="ContentLanguageCode" value="{$contentlanguage_code}" />
                 <input type="hidden" name="NewButton" value="Here" />
                 <input type="hidden" name="ViewMode" value="full" />

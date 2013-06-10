@@ -27,7 +27,6 @@
                                                        'sort_by',          $sort_mechanism,
                                                         'limit', 10) )
     $parent_obj_id = $parent_node.contentobject_id
-    $class_id_num = 44
     $contentlanguage_code = "eng-US"}
 
 <div class="header">
@@ -79,4 +78,4 @@ var {$tab.tab_id} = {ldelim}
 
 </script>
 
-{undef $parent_node $latest_content $parent_node_id $parent_obj_id $class_id_num $sort_mechanism $contentlanguage_code $sort_field}
+{undef $parent_node $latest_content $parent_node_id $parent_obj_id $sort_mechanism $contentlanguage_code $sort_field}

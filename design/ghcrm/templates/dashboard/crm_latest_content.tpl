@@ -38,7 +38,6 @@
 
     $parent_node_id = $parent_node.node_id
     $parent_obj_id = $parent_node.contentobject_id
-    $class_id_num = 44
     $contentlanguage_code = "eng-US"}
 
 {def $new_entries_node = ezini( 'CRMNodeSettings', 'PutNewEntriesHereNode', 'ghcrm.ini' ) }
@@ -51,7 +50,7 @@
             <form method="post" action={"/content/action"|ezurl()}>
                 <input type="hidden" name="ContentNodeID" value="{$new_entries_node}" />
                 <input type="hidden" name="NodeID" value="{$new_entries_node}" />
-                <input type="hidden" name="ClassID" value="{$class_id_num}" />
+                <input type="hidden" name="ClassIdentifier" value="crm_organization" />
                 <input type="hidden" name="ContentLanguageCode" value="{$contentlanguage_code}" />
                 <input type="hidden" name="NewButton" value="Here" />
                 <input type="hidden" name="ViewMode" value="full" />
