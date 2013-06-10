@@ -1,0 +1,53 @@
+{* File: extension.xml 
+   Purpose:
+   Granite Horizon CRM *}
+
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <metadata>
+        <name>Granite Horizon CRM</name>
+        <version>1.0</version>
+        <copyright>Copyright (C) 2013, Granite Horizon, LLC. All rights reserved. ???</copyright>
+        <license></license>
+        <info_url>To be determined...</info_url>
+
+        <software>
+            <uses>
+                <name>jQuery Library</name>
+                <license>Dual licensed under the MIT and GPL licenses</license>
+                <copyright>Copyright 2010, John Resig</copyright>
+                <info_url>https://jquery.org/</info_url>
+                <version>1.7.2</version>
+            </uses>
+            <uses>
+                <name>jQuery Cookies</name>
+                <license>Licensed under the MIT license</license>
+                <copyright>Copyright 2011, Klaus Hartl</copyright>
+                <info_url>http://plugins.jquery.com/cookie/</info_url>
+                <version>1.3.1</version>
+            </uses>
+            <uses>
+                <name>jQuery Tablesorter</name>
+                <license>Dual licensed under the MIT or GPL licenses</license>
+                <copyright>Copyright (c) 2007, Christian Bach</copyright>
+                <info_url>http://plugins.jquery.com/tablesorter/</info_url>
+                <version>2.7</version>
+            </uses>
+            <uses>
+                <name>Gradual Elements Fader</name>
+                <license>Freeware</license>
+                <copyright>Copyright 2012 (c) Dynamic Drive. All rights reserved</copyright>
+                <info_url>http://dynamicdrive.com</info_url>
+                <version>Unknown</version>
+            </uses>
+        </software>
+
+    </metadata>
+
+    <dependencies>
+        <requires>
+            <extension name="ezjscore" />
+        </requires>
+    </dependencies>
+
+</software>

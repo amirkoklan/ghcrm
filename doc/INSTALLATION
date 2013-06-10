@@ -1,0 +1,83 @@
+/* File: INSTALLATION 
+   Purpose: Documenation on how to install the Granite Horizon CRM extension.
+   Granite Horizon CRM */
+
+"Granite CRM" created by Granite Horizon, LLC
+http://granitehorizon.com
+
+REQUIREMENTS
+-------------
+-eZ Publish 4.7 installed (NOT TESTED ON OTHER VERSIONS)
+-ezjscore already installed and functioning WITH jQuery
+    -See http://share.ez.no/articles/ez-publish/ezjscore-ez-publish-javascript-and-ajax-framework
+
+FILES
+------
+Included in this installation:
+
+-Templates
+-Images
+-CSS Rules
+-JavaScript
+-Permissions
+-Custom Classes
+
+INSTALLATION
+------------
+
+/* 
+    TO BE ADDED: Do we have the user specify the States and ID's in an INI? 
+    crm_contacted=5
+    crm_not_contacted=3
+*/
+
+1. Unpack and install to [ezroot]/extension. 
+
+2. Run the .pkz file to create proper Sales groups, permissions and custom classes.
+
+3. Add the extension to the ActiveExtensions[] list in your admin_siteaccess/site.ini under [ExtensionSettings] 
+
+4. Add the extension to the AdditionalSiteDesignList[] in your admin siteaccess site.ini under [DesignSettings].
+    NOTE: The extension MUST be first in the list!
+    BEFORE:
+        AdditionalSiteDesignList[]=admin2
+        AdditionalSiteDesignList[]=admin
+
+    AFTER:
+        AdditionalSiteDesignList[]=ghcrm
+        AdditionalSiteDesignList[]=admin2
+        AdditionalSiteDesignList[]=admin
+
+5. Create a "Sales" folder somewhere in your content structure. Note the NodeID of the Sales folder. (NOT the Object ID).
+Set the RootNode to the node id number in ghcrm/settings/content.ini undeer the [CRMNodeSettings] section.
+/* may see if we can create the sales folder one level higher so it doesn't look like content for the website */
+
+6. Clear your caches (ezcache.php --clear-all --purge)
+
+7. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
+
+8. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
+
+/* CRM Email */
+1. Create the CRM Email content class.  (See crm_content_class.jpg)
+    *** Note: Identifier names have to be exact. ***
+
+2. Create two workflows.
+    -  Go to the Setup Tab in eZ Publish -> Workflows. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
+    *** Note: Workflows have to be exact for email to send. ***
+
+3. Add a trigger.
+    - Go to the Setup Tab in eZ Publish -> Triggers (workflows must be set up first)
+    - Select Multiplexer from the dropdown. (content/publish/after)
+
+/* Steps to send CRM Email */
+1. Create email. Click the Create new button and selected CRM Email from the dropdown.
+
+2. Send for publishing (stores draft)
+
+3. When you are ready to send the email, go back and edit the draft to check the checkbox confirming that you would like to send the email.
+
+
+
+
+/* add info for setting up crm email, workflow, db: content classes, permissions, object states, section: CRM Section */

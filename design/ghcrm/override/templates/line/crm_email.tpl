@@ -1,0 +1,56 @@
+{* Template: crm_email.tpl
+   Purpose: CRM Email Line View
+   Granite Horizon CRM *}
+
+{def $contact = ""
+    $organization_name = ""
+    $org_url = ""
+    $contact_phone = ""
+    $contact_email = ""
+    $contact_url = ""
+    $contact_name = ""}
+
+{if eq( $object.parent.class_identifier, "crm_contact" )}
+ {set $organization_name = $object.parent.parent.data_map.name.content
+    $org_url = $object.parent.parent.url_alias
+    $contact_phone = $object.parent.data_map.phone_1.content
+    $contact_email = $object.parent.data_map.email.content
+    $contact_url = $object.parent.url_alias
+    $contact_name = concat( $object.parent.data_map.first_name.content, " ", $object.parent.data_map.last_name.content )}
+{elseif eq( $object.parent.class_identifier, "crm_organization" )}
+ {set $contact = fetch( 'content', 'list', hash( 'parent_node_id', $object.parent_node_id,
+                               'offset', 0,
+                                                       'class_filter_type', 'include',
+                                                       'class_filter_array', array( 'crm_contact' ),
+                               'limit', 1) )}
+
+  {if is_set( $contact.0 )}
+    {set $contact = $contact.0
+    $organization_name = $object.parent.data_map.name.content
+    $org_url = $object.parent.url_alias
+    $contact_email = $contact.data_map.email.content
+    $contact_phone = $contact.data_map.phone_1.content
+    $contact_url = $contact.url_alias
+    $contact_name = concat( $contact.data_map.first_name.content, " ", $contact.data_map.last_name.content )}
+  {else}
+    {set $contact_email = "No Contact"
+        $contact_phone = "None"
+        $contact_url="#"
+        $contact_name="No Contact"}
+  {/if}
+
+{/if}
+
+<tr>
+    <td><a href={$contact_url|ezurl()}>{$contact_name}</a></td>
+    <td>{if ne( $organization_name, "" )}<a href={$org_url|ezurl()}>{$organization_name|wash()}</a>{else}None{/if}</td>
+    <td>{if $object.data_map.type.has_content}{attribute_view_gui attribute=$object.data_map.type}{/if}</td>
+    <td>{if $object.data_map.name.has_content}<a href={$object.url_alias|ezurl()}>{$object.data_map.name.content}</a>{else}None{/if}</td>
+    <td>{$contact_phone|wash()}</td>
+    <td><a href="mailto:{$contact_email|wash()}"><img class="gradualfader" src={'images/email.png'|ezdesign()} alt="{$contact_email|wash()}" height="32px" width="32px" /></a></td>
+    <td>{if $object.data_map.assigned_to.has_content}{attribute_view_gui attribute=$object.data_map.assigned_to}{/if}</td>
+    <td>{if $object.data_map.date_scheduled.has_content}{$object.data_map.date_scheduled.content.timestamp|datetime('custom','%n/%d/%Y')}{else}None{/if}</td>
+    <td>&nbsp;</td>
+</tr>
+
+{undef $organization_name $org_url $contact $contact_url $contact_name $contact_email $contact_phone}
