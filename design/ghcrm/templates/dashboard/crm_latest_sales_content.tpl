@@ -32,7 +32,6 @@
 <div class="header">
     <h2>{$tab.header|i18n( 'design/admin/dashboard/latest_content' )}</h2>
 
-        {if $latest_content}
             <div id="{$tab.tab_id}">
                 <h5>Sort by Date:</h5> 
                 <a class="sort" id="sort_asc">asc</a> 
@@ -48,6 +47,7 @@
             </div><!-- ends tab.tab_id -->
 </div><!-- ends .header -->
 
+        {if $latest_content}
 <table class="tablesorter list" cellpadding="0" cellspacing="0" border="0">
     {* Get table header *}
     <thead>
