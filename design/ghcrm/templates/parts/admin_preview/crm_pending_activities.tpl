@@ -8,7 +8,7 @@
         <form method="post" action={"/content/action"|ezurl()}>
             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
             <input type="hidden" name="NodeID" value="{$node.node_id}" />
-            <input type="hidden" name="ClassID" value="46" />
+            <input type="hidden" name="ClassIdentifier" value="crm_activity" />
             <input type="hidden" name="ContentLanguageCode" value="{$node.object.current_language}" />
             <input type="hidden" name="NewButton" value="Here" />
             <input type="hidden" name="ViewMode" value="full" />
