@@ -1,6 +1,8 @@
 $(document).ready(function(){
     var ghCRM = {
         init: function(){
+            //init gradual fader for line items
+            gradualFader.init();
             $('.limit').click(function(){
                     struct_id = $(this).parent().attr('id');
                     fetch_element = "#" + struct_id;
