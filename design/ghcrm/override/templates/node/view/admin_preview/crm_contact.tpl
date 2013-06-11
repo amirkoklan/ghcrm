@@ -202,7 +202,6 @@
 
 <div class="right_content_wrapper">{* This div ends in the middle of the crm_pending activities include below *}
 {* Include some templates for outputting relevant content *}
-    {* include uri="design:parts/admin_preview/crm_projects_list.tpl" node=$node.parent *}
     {include uri="design:parts/admin_preview/crm_projects_list.tpl" node=$node}
     {include uri="design:parts/admin_preview/crm_pending_activities.tpl" node=$node}
     {include uri="design:parts/admin_preview/crm_recent_activities.tpl" node=$node}
