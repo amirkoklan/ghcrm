@@ -30,7 +30,7 @@
 
 <div class="header">
     <h2>{$tab.header|i18n( 'design/admin/dashboard/latest_content' )}</h2>
-        {if $projects}
+
             <div class="add_new">
                 <form method="post" action={"/content/action"|ezurl()}>
                     <input type="hidden" name="ContentNodeID" value="{$new_entries_node}" />
@@ -65,6 +65,7 @@
 
 </div><!-- .header -->
 
+        {if $projects}
 <table class="tablesorter list" cellpadding="0" cellspacing="0" border="0">
     {* Get table header *}
     <thead>
