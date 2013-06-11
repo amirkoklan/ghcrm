@@ -71,12 +71,6 @@ MatchFile=line/crm_project.tpl
 Subdir=templates
 Match[class_identifier]=crm_project
 
-[crm_latest_content_line]
-Source=content/view/line.tpl
-MatchFile=line/crm_latest_content.tpl
-Subdir=templates
-Match[class_identifier]=crm_organization
-
 [crm_email_line]
 Source=content/view/line.tpl
 MatchFile=line/crm_email.tpl
