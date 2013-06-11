@@ -10,9 +10,9 @@ DesignExtensions[]=ghcrm
 BackendCSSFileList[]=ghcrm.css
 
 [JavaScriptSettings]
-BackendJavaScriptList[]=gradualfader.js
 BackendJavaScriptList[]=jquery.tablesorter.min.js
 BackendJavaScriptList[]=jquery.cookie.min.js
+BackendJavaScriptList[]=gradualfader.js
 BackendJavaScriptList[]=ghcrm.js
 
 */ ?>
