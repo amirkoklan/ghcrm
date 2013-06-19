@@ -172,7 +172,7 @@
     <hr>
 {/if}
 
-{if $node.data_map.home_country.has_content}
+{if $node.data_map.country.has_content}
 <span class="client_info_left">Home:</span>
 <span class="client_info_right">
     <address>
@@ -184,7 +184,7 @@
 
         {if $node.data_map.home_zip_code.has_content}{attribute_view_gui attribute=$node.data_map.home_zip_code}{/if}
 
-        {if $node.data_map.home_country.has_content}{attribute_view_gui attribute=$node.data_map.home_country}{/if}
+        {if $node.data_map.country.has_content}{attribute_view_gui attribute=$node.data_map.country}{/if}
     </address>
 </span>
 <hr>
