@@ -25,13 +25,13 @@ Included in this installation:
 INSTALLATION
 ------------
 
-1. Unpack and install to [ezroot]/extension. 
+1. Unpack and install the ghcrm extension to [ezroot]/extension. 
 
 # Not supporting this right now... Not tested
 #2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies. (see gh_crm_policies.jpg).
 
 # Event class already existed with demo content site package - go ahead and replace event class
-3. In the setup tab run the .pkz file to import and create custom classes. (gh_crm_content_classes-1.0-1.ezpkg)
+3. In Setup -> Packages tab run the .ezpkz file to import and create custom classes. (ghcrm/packages/gh_crm_content_classes-1.0-1.ezpkg)
 
 4. Add the extension to the ActiveAccessExtensions[] list in your admin_siteaccess/site.ini under [ExtensionSettings] 
     [ExtensionSettings]
@@ -59,21 +59,34 @@ Set the RootNode to the node id number in:
         ghcrm/settings/menu.ini (under the URL[] section) - content/view/full/[Root Node Goes Here]
         ghcrm/settings/override.ini under the [crm_sales] section - Match[node]= [Root Node Goes Here]
 
-7. Clear your caches (ezcache.php --clear-all --purge)
+7. Add these classes to the Tree Menu in to settings/siteaccess/[admin siteaccess]/contentstructuremenu.ini.append.php  
 
-8. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
+    [TreeMenu]
+    ShowClasses[]=crm_contact
+    ShowClasses[]=crm_activity
+    ShowClasses[]=crm_project
+    ShowClasses[]=crm_email
+    ShowClasses[]=crm_email_template
+    ShowClasses[]=crm_event
+    ShowClasses[]=crm_organization
+    ShowClasses[]=crm_event
+    ShowClasses[]=crm_organization
+
+8. Clear your caches (ezcache.php --clear-all --purge)
+
+9. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
 
 # Didn't set up Sales group. Using administrator account.
-9. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
+10. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
 
 /* CRM Workflow and trigger */
 1. Create two workflows.
-    -  Go to the Setup Tab in eZ Publish -> Workflows. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
+    -  Go to the Setup Tab in eZ Publish -> Workflows. Create a new workflow group called GHCRM, then create two new workflows in GHCRM. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
     *** Note: Workflows have to be exact for email to send. ***
 
 2. Add a trigger.
     - Go to the Setup Tab in eZ Publish -> Triggers (workflows must be set up first)
-    - Select Multiplexer from the dropdown. (content/publish/after)
+    - Select GHCRM Send Email Multiplexer from the dropdown for the (content/publish/after) workflow.
 
 /* Steps to send CRM Email */
 1. Create email. Click the Create new button and selected CRM Email from the dropdown.
