@@ -3,6 +3,18 @@
 # Purpose:  
 # Granite Horizon CRM
 
+[crm_organization_preview]
+Source=node/view/admin_preview.tpl
+MatchFile=node/view/admin_preview/crm_organization.tpl
+Subdir=templates
+Match[class_identifier]=crm_organization
+
+[crm_contact_preview]
+Source=node/view/admin_preview.tpl
+MatchFile=node/view/admin_preview/crm_contact.tpl
+Subdir=templates
+Match[class_identifier]=crm_contact
+
 [crm_email_message_select]
 Source=content/datatype/edit/eztext.tpl
 MatchFile=edit/crm_email_eztext_body.tpl
@@ -45,7 +57,7 @@ Match[class_identifier]=crm_email
 Source=node/view/full.tpl
 MatchFile=node/crm_dashboard.tpl
 Subdir=templates
-Match[node]=111
+Match[node]=103
 
 [crm_organization_line]
 Source=content/view/line.tpl
