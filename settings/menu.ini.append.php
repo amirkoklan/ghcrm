@@ -15,8 +15,8 @@ Name=Granite CRM
 Tooltip=Granite Horizon Customer Relationship Manager
 
 URL[]
-URL[default]=content/view/full/111
-URL[browse]=content/view/full/111
+URL[default]=content/view/full/103
+URL[browse]=content/view/full/103
 
 NavigationPartIdentifier=ghcrmnavigationpart
 
