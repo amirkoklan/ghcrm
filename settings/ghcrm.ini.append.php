@@ -4,8 +4,8 @@
 # Granite Horizon CRM
 
 [CRMNodeSettings]
-RootNode=111
-EmailTemplateContainerNode=111
-PutNewEntriesHereNode=3433
+RootNode=103
+EmailTemplateContainerNode=103
+PutNewEntriesHereNode=103
 
 */ ?>
