@@ -59,6 +59,14 @@
             </span>
             <hr>
         {/if}
+        
+        {if $node.data_map.notes.has_content}
+            <span class="client_info_left">Notes:</span>
+            <span class="client_info_right">
+                {attribute_view_gui attribute=$node.data_map.notes}
+            </span>
+            <hr>
+        {/if}
     </div><!-- ends .container -->
 </div><!-- ends .content_left -->
 
