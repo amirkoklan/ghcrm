@@ -1,6 +1,6 @@
 <?php /* #?ini charset="utf-8"?
 # File: design.ini.append.php 
-# Purpose:  
+# Purpose: This loads the ghcrm design, css and js files
 # Granite Horizon CRM
 
 [ExtensionSettings]
