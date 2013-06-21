@@ -1,6 +1,6 @@
 <?php /* #?ini charset="utf-8"?
 # File: ezjscore.ini.append.php
-# Purpose:  
+# Purpose: contains ezjscore settings
 # Granite Horizon CRM
 
 [ezjscServer]
@@ -11,12 +11,8 @@ Class=GHCRMFetch
 File=extension/ghcrm/classes/ghcrmfetch.php
 Functions[]=getDataSet
 
-[eZJSCore]
-
-Packer=enabled
-
-# enable / disable loading the YUI / jQuery files from external servers
-LoadFromCDN=enabled
-PreferredLibrary=jquery
+# These extension relies on jquery. If you don't have it loaded already then you should consider loading it.
+#[eZJSCore]
+#PreferredLibrary=jquery
 
 */ ?>
