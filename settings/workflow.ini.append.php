@@ -1,6 +1,6 @@
 <?php /* #?ini charset="utf-8"?
-# File: texttoimage.ini.append.php 
-# Purpose:  
+# File: workflow.ini.append.php 
+# Purpose: Defines workflow for Event Types
 # Granite Horizon CRM
 
 [EventSettings]
