@@ -1,15 +1,15 @@
-{* File: extension.xml 
-   Purpose:
-   Granite Horizon CRM *}
+<!-- File: extension.xml 
+   Purpose: software used for GH CRM 
+   Granite Horizon CRM -->
 
 <?xml version="1.0" encoding="utf-8" ?>
 <software>
     <metadata>
         <name>Granite Horizon CRM</name>
-        <version>1.0</version>
-        <copyright>Copyright (C) 2013, Granite Horizon, LLC. All rights reserved. ???</copyright>
-        <license></license>
-        <info_url>To be determined...</info_url>
+        <version>0.1</version>
+        <copyright>Copyright 2013, Granite Horizon, LLC</copyright>
+        <license>GNU Lesser General Public License, version 2.1</license>
+        <info_url>https://github.com/granitehorizon/ghcrm</info_url>
 
         <software>
             <uses>
