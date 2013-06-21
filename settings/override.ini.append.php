@@ -1,6 +1,6 @@
 <?php /* #?ini charset="utf-8"?
 # File: override.ini.append.php 
-# Purpose:  
+# Purpose: Lists template overrides for Granite CRM
 # Granite Horizon CRM
 
 [crm_organization_preview]
