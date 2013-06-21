@@ -1,6 +1,6 @@
 <?php /* #?ini charset="utf-8"?
 # File: menu.ini.append.php 
-# Purpose:  
+# Purpose: Sets the tab / tab names, and tooltip for Granite CRM
 # Granite Horizon CRM
 
 [NavigationPart]
