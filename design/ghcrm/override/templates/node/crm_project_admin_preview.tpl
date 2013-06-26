@@ -67,7 +67,7 @@
     {if $node.data_map.notes.has_content}
         <span class="client_info_left">Notes:</span>
         <span class="client_info_right">
-            {attribute_view_gui attribute=$node.data_map.date_and_time_proposal_submitted}
+            {attribute_view_gui attribute=$node.data_map.notes}
         </span>
         <hr>
     {/if}
