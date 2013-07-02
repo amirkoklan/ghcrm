@@ -2,13 +2,14 @@
    Purpose: This template allow the user to select the body of an email based on pre-written templates from a library of such templates
    Granite Horizon CRM *}
 
-{def $ghcrm_node_id = ''}
+{def $ghcrm_node_id = ''
+     $container_node_id = ezini( 'CRMNodeSettings', 'EmailTemplateContainerNode', 'ghcrm.ini' )}
 
-{if is_set(ezini( 'CRMNodeSettings', 'EmailTemplateContainerNode', 'ghcrm.ini' ))}
+{if is_set( $container_node_id )}
     {set $ghcrm_node_id = ezini( 'CRMNodeSettings', 'EmailTemplateContainerNode', 'ghcrm.ini' )}
 {else}
     {set $ghcrm_node_id = ezini( 'CRMNodeSettings', 'RootNode', 'ghcrm.ini' )}
-{/if}    
+{/if}
 
 {def $email_body = $attribute.content|wash
      $templates = fetch( 'content', 'tree', hash(
