@@ -20,7 +20,7 @@ Included in this installation:
 -CSS Rules
 -JavaScript
 -Permissions
--Custom Classes
+-Custom Classes (gh_crm_content_classes-1.0-1.ezpkg)
 
 INSTALLATION
 ------------
@@ -28,7 +28,7 @@ INSTALLATION
 1. Unpack and install the ghcrm extension to [ezroot]/extension. 
 
 # Not supporting this right now... Not tested
-#2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies. (see gh_crm_policies.jpg).
+#2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies.
 
 # Event class already existed with demo content site package - go ahead and replace event class
 3. In Setup -> Packages tab run the .ezpkz file to import and create custom classes. (ghcrm/packages/gh_crm_content_classes-1.0-1.ezpkg)
@@ -51,7 +51,8 @@ INSTALLATION
 
 # Was not able to move the Sales folder to one level higher paralell with the Home/Root node.
 6. Create a "Sales" folder somewhere in your content structure. Note the NodeID of the Sales folder. (NOT the Object ID).
-Set the RootNode to the node id number in: 
+
+    Set the RootNode to the node id in: 
         ghcrm/settings/content.ini (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
         ghcrm/settings/ghcrm.ini (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
                                                                          EmailTemplateContainerNode=[Root Node Goes Here]
