@@ -57,8 +57,10 @@ INSTALLATION
         ghcrm/settings/ghcrm.ini (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
                                                                          EmailTemplateContainerNode=[Root Node Goes Here]
                                                                          PutNewEntriesHereNode=[Root Node Goes Here]
-        ghcrm/settings/menu.ini (under the URL[] section) - content/view/full/[Root Node Goes Here]
-        ghcrm/settings/override.ini under the [crm_sales] section - Match[node]= [Root Node Goes Here]
+        ghcrm/settings/menu.ini (under the [Topmenu_crm] section) - content/view/full/[Root Node Goes Here]
+        ghcrm/settings/override.ini (under the [crm_sales] section) - Match[node]= [Root Node Goes Here]
+
+    *** Note: For easy maintenence on upgrading the GH CRM extention copy all the Root Node ID's specific to your site into the settings in the admin siteaccess. ***
 
 7. Add these classes to the Tree Menu in to settings/siteaccess/[admin siteaccess]/contentstructuremenu.ini.append.php  
 
