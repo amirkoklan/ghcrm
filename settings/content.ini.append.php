@@ -4,6 +4,6 @@
 # Granite Horizon CRM
 
 [CRMNodeSettings]
-RootNode=103
+RootNode=
 
 */ ?>
