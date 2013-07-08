@@ -57,7 +57,7 @@ Match[class_identifier]=crm_email
 Source=node/view/full.tpl
 MatchFile=node/crm_dashboard.tpl
 Subdir=templates
-Match[node]=103
+Match[node]=
 
 [crm_organization_line]
 Source=content/view/line.tpl
