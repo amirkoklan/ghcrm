@@ -10,6 +10,7 @@
         </h2>
     </div><!-- ends crm-header -->
 
+    <div class="content_left_wrapper">
     <div class="content_left">
         <div class="crm-header">
             <h1>Email Information</h1>
@@ -90,14 +91,6 @@
         <hr>
     {/if}
 
-    {if $node.data_map.email_body.has_content}
-        <span class="client_info_left">Email Body:</span>
-        <span class="client_info_right">
-            {attribute_view_gui attribute=$node.data_map.email_body}
-        </span>
-        <hr>
-    {/if}
-
     {if $node.data_map.send_email.has_content}
         <span class="client_info_left">Email Sent:</span>
         <span class="client_info_right">
@@ -108,3 +101,8 @@
 
     </div><!-- ends .container -->
 </div><!-- ends content_left -->
+</div><!-- ends content_left_wrapper -->
+
+<div class="right_content_wrapper">
+    {include uri="design:parts/admin_preview/crm_email_body.tpl" node=$node}
+</div> <!-- end right_content_wrapper -->
