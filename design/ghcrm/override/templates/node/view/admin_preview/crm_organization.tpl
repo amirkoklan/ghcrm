@@ -1,4 +1,6 @@
-{* Admin preview of CRM Contact *}
+{* Template: crm_organization.tpl
+   Purpose: CRM Organization in Admin Preview
+   Granite Horizon CRM *}
 
 <div class="crm-preview">
     <div class="crm-header">
@@ -40,6 +42,7 @@
 
     </div><!-- .crm-header -->
 
+<div class="content_left_wrapper">
 <div class="content_left">
 
 <div class="crm-header">
@@ -115,16 +118,55 @@
 <hr>
 {/if}
 
-{if $node.data_map.organization_notes.has_content}
-<div class="crm_organization_notes left">
-    <span class="client_info_left">Notes:</span>
-        <span class="client_info_right"><p>{attribute_view_gui attribute=$node.data_map.organization_notes}</p></span>
-</div><!-- .crm_address_info -->
-{/if}
 </div><!-- ends admin_content -->
 </div><!-- ends content_left -->
 
+<div class="content_left_notes">
+
+<div class="crm-header">
+    <h1>Organization Notes</h1>
+	{if or($node.data_map.notes.has_content, $node.data_map.organization_notes.has_content)}
+        <div class="downbutton" style="display:none;">
+            <a href="#"></a>
+        </div><!-- ends downbutton -->
+
+        <div class="upbutton" style="display:block;">
+            <a href="#"></a>
+        </div><!-- ends upbutton -->
+	{else}
+        <div class="no_notes">(No Notes)</div><!-- ends no_notes -->
+    {/if}
+
+</div><!-- ends crm-header -->
+
+	{if or($node.data_map.notes.has_content, $node.data_map.organization_notes.has_content)}
+        <div class="container" style="display:block;">
+    {else}
+        <div class="container" style="display:none;">
+	{/if}
+{if $node.data_map.notes.has_content}
+<div class="crm_organization_notes left">
+    <span class="organization_notes_left">General</span><br>
+    <span class="organization_notes_left">Notes:</span>
+    <span class="client_info_right"><p>{attribute_view_gui attribute=$node.data_map.notes}</p></span>
+</div><!-- .crm_organization_notes -->
+<hr>
+{/if}
+
+{if $node.data_map.organization_notes.has_content}
+<div class="crm_organization_notes left">
+    <span class="organization_notes_left">Organization</span><br>
+    <span class="organization_notes_left">Notes:</span>
+    <span class="client_info_right"><p>{attribute_view_gui attribute=$node.data_map.organization_notes}</p></span>
+</div><!-- .crm_organization_notes -->
+{/if}
+
+</div><!-- ends admin_content -->
+</div><!-- ends content_left_notes -->
+</div><!-- ends content_left_wrapper -->
+
 <div class="right_content_wrapper">{* This div ends in the middle of the crm_pending activities include below *}
+
 {include uri="design:parts/admin_preview/crm_contacts_list.tpl" node=$node}
 {include uri="design:parts/admin_preview/crm_projects_list.tpl" node=$node}
 {include uri="design:parts/admin_preview/crm_pending_activities.tpl" node=$node}
