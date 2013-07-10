@@ -80,7 +80,6 @@
 <div class="crm_address_info right">
     <span class="client_info_left">Address:</span>
     <span class="client_info_right">
-    <p>
     {if $node.data_map.address.has_content}
         {attribute_view_gui attribute=$node.data_map.address}<br>
     {/if}
@@ -96,7 +95,6 @@
     {if $node.data_map.country.has_content}
         {attribute_view_gui attribute=$node.data_map.country}
     {/if}
-    </p>
     </span>
 </div><!-- .crm_address_info -->
 <hr>
