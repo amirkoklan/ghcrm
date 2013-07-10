@@ -20,7 +20,7 @@ Included in this installation:
 -CSS Rules
 -JavaScript
 -Permissions
--Custom Classes (gh_crm_content_classes-1.0-1.ezpkg)
+-Custom Classes (gh_crm_content_classes_v2-1.1-1.ezpkg)
 
 INSTALLATION
 ------------
@@ -95,5 +95,4 @@ INSTALLATION
 1. Create email. Click the Create new button and selected CRM Email from the dropdown.
 
 2. You can either Save and Send Later (publishes but does not send), or Send Email Now. 
-
 
