@@ -53,10 +53,17 @@
     {/if}
 
 {if $node.data_map.title.has_content}
+    {if $node.data_map.id_photo.has_content}
+    <span class="client_info_left_title">Title:</span>
+    <span class="client_info_right_title">
+        {attribute_view_gui attribute=$node.data_map.title}
+    </span>
+    {else}
     <span class="client_info_left">Title:</span>
     <span class="client_info_right">
         {attribute_view_gui attribute=$node.data_map.title}
     </span>
+    {/if}
  <hr>
 {/if}
 
