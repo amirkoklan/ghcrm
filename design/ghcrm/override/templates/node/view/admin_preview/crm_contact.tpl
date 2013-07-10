@@ -73,13 +73,7 @@
     <span class="client_info_right">
         {attribute_view_gui attribute=$node.data_map.phone_2}
     </span>        
-{/if}
-
-{if $node.data_map.fax.has_content}
-    <span class="client_info_left">Fax:</span> 
-    <span class="client_info_right">
-        {attribute_view_gui attribute=$node.data_map.fax}
-    </span>        
+    <hr>
 {/if}
 
 {if $node.data_map.email.has_content}
