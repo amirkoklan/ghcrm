@@ -487,9 +487,19 @@ a.close_div {
     float:left;
     padding-right:5px;
 }
+.client_info_left_title {
+    font-weight:bold;
+    display:inline-block;
+    float:left;
+    padding-right:5px;
+}
 .client_info_right {
     display:inline-block;
     max-width:70%;
+}
+.client_info_right_title {
+    display:inline-block;
+    max-width:50%;
 }
 .content_right ul {
     list-style-type:none;
