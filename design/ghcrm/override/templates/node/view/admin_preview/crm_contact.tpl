@@ -1,14 +1,33 @@
-{* Admin preview of CRM Contact *}
+{* Template: crm_contact.tpl
+   Purpose: CRM Contact in Admin Preview
+   Granite Horizon CRM *}
+
 <div class="crm-preview"> 
 
 <div class="crm-header">
 <h2 class="no_website"> 
     {attribute_view_gui attribute=$node.data_map.first_name} {attribute_view_gui attribute=$node.data_map.last_name}
     <span class="contact_icon"></span>
+
+    <div class="send_email_icon">
+        <form method="post" action={"/content/action"|ezurl()}>
+            <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+            <input type="hidden" name="NodeID" value="{$node.node_id}" />
+            <input type="hidden" name="ClassIdentifier" value="crm_email" />
+            <input type="hidden" name="ContentLanguageCode" value="{$node.object.current_language}" />
+            <input type="hidden" name="NewButton" value="Here" />
+            <input type="hidden" name="ViewMode" value="full" />
+            <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
+            <input type="hidden" name="SortingField" value="6" />
+            <input type="hidden" name="SortingOrder" value="1" />
+            <input onmouseover='this.src={"send_email_icon_hover.png"|ezimage()}'                                                                                       onmouseout='this.src={"send_email_icon.png"|ezimage()}'
+                   type="image" src={"send_email_icon.png"|ezimage()} class="pending_button" value="Submit" alt="Submit" />                                 </form>
+    </div>
+
 </h2>
 </div><!-- ends crm-header -->
 
-
+<div class="content_left_wrapper">
 <div class="content_left">
 
 <div class="crm-header">
@@ -83,11 +102,6 @@
     {/if}
 
 <span class="client_info_left">Social Media:</span> 
-{if $node.data_map.email.has_content}
-    <a href="mailto:{$node.data_map.email.content|wash()}">
-        <img class="gradualfader" src={'images/email.png'|ezdesign()} alt="{$node.data_map.email.content|wash()}" height="32px" width="32px" />
-    </a>
-{/if}
 
 {if $node.data_map.personal_email.has_content}
     <a href="mailto:{$node.data_map.personal_email.content|wash()}">
@@ -123,22 +137,6 @@
     {/if}
 </span>
 <hr>
-
-{if $node.data_map.notes.has_content}
-    <span class="client_info_left">Notes:</span> 
-    <span class="client_info_right">
-        {attribute_view_gui attribute=$node.data_map.notes}
-    </span>
-    <hr>
-{/if}
-
-{if $node.data_map.contact_notes.has_content}
-    <span class="client_info_left">Contact Notes:</span> 
-    <span class="client_info_right">
-        {attribute_view_gui attribute=$node.data_map.contact_notes}
-    </span>
-    <hr>
-{/if}
 
 {if $node.data_map.family_information.has_content}
     <span class="client_info_left">Family Information:</span> 
@@ -199,9 +197,11 @@
 
 </div><!-- ends client_info -->
 </div><!-- ends content_left -->
+</div><!-- ends content_left_wrapper -->
 
 <div class="right_content_wrapper">{* This div ends in the middle of the crm_pending activities include below *}
 {* Include some templates for outputting relevant content *}
+    {include uri="design:parts/admin_preview/crm_contact_notes.tpl" node=$node}
     {include uri="design:parts/admin_preview/crm_projects_list.tpl" node=$node}
     {include uri="design:parts/admin_preview/crm_pending_activities.tpl" node=$node}
     {include uri="design:parts/admin_preview/crm_recent_activities.tpl" node=$node}
