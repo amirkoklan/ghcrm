@@ -6,6 +6,7 @@
     <h2 class="no_website">{$node.object.contentobject_attributes.0.data_text}<span class="activity_icon"></span></h2>
 </div><!-- ends .crm-header -->
 
+<div class="content_left_wrapper">
 <div class="content_left">
     <div class="crm-header">
         
@@ -57,17 +58,14 @@
             <span class="client_info_right">
                 {attribute_view_gui attribute=$node.data_map.assigned_to}
             </span>
-            <hr>
         {/if}
         
-        {if $node.data_map.notes.has_content}
-            <span class="client_info_left">Notes:</span>
-            <span class="client_info_right">
-                {attribute_view_gui attribute=$node.data_map.notes}
-            </span>
-            <hr>
-        {/if}
     </div><!-- ends .container -->
 </div><!-- ends .content_left -->
+</div><!-- ends .content_left_wrapper -->
+
+<div class="right_content_wrapper">
+    {include uri="design:parts/admin_preview/crm_activity_notes.tpl" node=$node}
+</div> <!-- end right_content_wrapper -->
 
 {undef $counter $count}
