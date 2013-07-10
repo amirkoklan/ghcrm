@@ -332,6 +332,13 @@ a:hover#sort_desc {
     margin:3px 0 0 10px;
     position:absolute;
 }
+.crm-header .send_email_icon {
+    width:35px;
+    height:35px;
+    display:inline-block;
+    margin:3px 0 0 52px;
+    position:absolute;
+}
 .crm-header:hover a.title {
     height:40px;
    // background: url('../images/admin_bg_hover.jpg') repeat-x;
@@ -355,15 +362,27 @@ a:hover#sort_desc {
 .crm-header .header_right a:hover {
     color:#fff;
 }
+.content_left_wrapper {
+    float:left;
+    width:49%;
+}
 .content_left {
     background-color:#e8e8e8;
     border-top-left-radius:8px;
     border-top-right-radius:8px;
-    float:left;
-    width:49%;
+    #float:left;
+    #width:49%;
     margin:15px 0;
 }
-.content_left hr, .content_right hr {
+.content_left_notes {
+    background-color:#e8e8e8;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+    #width:49%;
+    #clear:left;
+    margin:15px 0;
+}
+.content_left hr, .content_left_notes hr, .content_right hr {
     border:0;
     height:0;
     border-top: 1px solid rgba(0,0,0,0.1);
@@ -443,6 +462,24 @@ a.close_div {
     float:right;
     margin-bottom:10px;
 }
+.notes_left {
+    font-weight:bold;
+    min-width:22%;
+    display:inline-block;
+    float:left;
+    padding-right:5px;
+    margin-top:5px;
+}
+.organization_notes_left, .contact_notes_left {
+    font-weight:bold;
+    min-width:22%;
+    display:inline-block;
+    float:left;
+    padding-right:5px;
+}
+.crm_organization_notes p, .crm_contact_notes p {
+    margin-top:-15px;
+}
 .client_info_left {
     font-weight:bold;
     min-width:22%;
@@ -501,17 +538,16 @@ table.list .project {
 table.list .assigned_to {
     width:140px;
 }
-.no_projects {
+.no_projects, .no_contacts, .no_notes, .no_activity_notes, .no_project_notes, .no_contact_notes {
    color:#fff;
    font-weight:bolder;
-   padding-left:142px;
    font-size:1.2em; 
 }
-.no_contacts {
-   color:#fff;
-   font-weight:bolder;
+.no_projects, .no_contacts, .no_activity_notes, .no_project_notes, .no_contact_notes {
    padding-left:148px;
-   font-size:1.2em; 
+}
+.no_notes {
+   padding-left:192px;
 }
 .past_due {
     color:#E24602;
