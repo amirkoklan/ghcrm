@@ -171,21 +171,59 @@
     <hr>
 {/if}
 
-{if $node.data_map.country.has_content}
-<span class="client_info_left">Home:</span>
-<span class="client_info_right">
-    <address>
-        {if $node.data_map.home_address.has_content}{attribute_view_gui attribute=$node.data_map.home_address}{/if}
+{if or( $node.data_map.home_address.has_content,
+        $node.data_map.home_city.has_content,
+        $node.data_map.home_state.has_content,
+        $node.data_map.home_zip.has_content,
+        $node.data_map.country.has_content )}
+<div class="crm_address_info right">
+    <span class="client_info_left">Home Address:</span>
+    <span class="client_info_right">
+    {if $node.data_map.home_address.has_content}
+        {attribute_view_gui attribute=$node.data_map.home_address}<br>
+    {/if}
+    {if $node.data_map.home_city.has_content}
+        {attribute_view_gui attribute=$node.data_map.home_city},
+    {/if}
+    {if $node.data_map.home_state.has_content}
+        {attribute_view_gui attribute=$node.data_map.home_state}
+    {/if}
+    {if $node.data_map.home_zip.has_content}
+        {attribute_view_gui attribute=$node.data_map.home_zip}<br>
+    {/if}
+    {if $node.data_map.country.has_content}
+        {attribute_view_gui attribute=$node.data_map.country}
+    {/if}
+    </span>
+</div><!-- .crm_address_info -->
+<hr>
+{/if}
 
-        {if $node.data_map.home_city.has_content}{if $node.data_map.home_address.has_content}, {/if}{attribute_view_gui attribute=$node.data_map.home_city}{/if}
-
-        {if $node.data_map.home_state.has_content}{attribute_view_gui attribute=$node.data_map.home_state}{/if}
-
-        {if $node.data_map.home_zip_code.has_content}{attribute_view_gui attribute=$node.data_map.home_zip_code}{/if}
-
-        {if $node.data_map.country.has_content}{attribute_view_gui attribute=$node.data_map.country}{/if}
-    </address>
-</span>
+{if or( $node.data_map.business_address.has_content,
+        $node.data_map.business_city.has_content,
+        $node.data_map.business_state.has_content,
+        $node.data_map.business_zip.has_content,
+        $node.data_map.country.has_content )}
+<div class="crm_address_info right">
+    <span class="client_info_left">Business Address:</span>
+    <span class="client_info_right">
+    {if $node.data_map.business_address.has_content}
+        {attribute_view_gui attribute=$node.data_map.business_address}<br>
+    {/if}
+    {if $node.data_map.business_city.has_content}
+        {attribute_view_gui attribute=$node.data_map.business_city},
+    {/if}
+    {if $node.data_map.business_state.has_content}
+        {attribute_view_gui attribute=$node.data_map.business_state}
+    {/if}
+    {if $node.data_map.business_zip.has_content}
+        {attribute_view_gui attribute=$node.data_map.business_zip}<br>
+    {/if}
+    {if $node.data_map.country.has_content}
+        {attribute_view_gui attribute=$node.data_map.country}
+    {/if}
+    </span>
+</div><!-- .crm_address_info -->
 <hr>
 {/if}
 
