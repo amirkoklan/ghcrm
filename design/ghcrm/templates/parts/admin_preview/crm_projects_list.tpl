@@ -19,7 +19,7 @@
                     <a href="#"></a>
                 </div><!-- ends upbutton -->
             {else}
-                <div class="no_projects">(No Projects)</div><!-- ends no_content -->
+                <div class="no_projects">(No Projects)</div><!-- ends no_projects -->
             {/if}
     </div><!-- ends crm-header -->
 
@@ -52,20 +52,20 @@
                 <li>
                     <span class="projects_list">{node_view_gui content_node=$child view='line'}</span>
                     {if $child.can_edit}
-                           <a href="{concat( 'content/edit/', $child.contentobject_id )|ezurl('no')}">
-                            <img src={'edit.gif'|ezimage} alt="Edit" title="Edit {$child.name|wash()}" />
-                        </a>
+                         <a href="{concat( 'content/edit/', $child.contentobject_id )|ezurl('no')}">
+                              <img src={'edit.gif'|ezimage} alt="Edit" title="Edit {$child.name|wash()}" />
+                         </a>
                     {else}
-                       <img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$child.name|wash()}." />
-                       {/if}
+                        <img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$child.name|wash()}." />
+                    {/if}
             
                     {if ne($count, $counter)}    
-                           <hr>
-                       {/if}
+                        <hr>
+                    {/if}
 
                 </li>
             {/if}
-      {/foreach}
+        {/foreach}
     </ul>
 
 {undef $counter $count}
