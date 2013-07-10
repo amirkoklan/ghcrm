@@ -8,18 +8,18 @@
     </div><!-- ends .crm-header -->
 {/if}
 
+<div class="content_left_wrapper">
 <div class="content_left">
     <div class="crm-header">
             
         <h1>Project Information</h1>
-    
-        <div class="downbutton" style="display:none;">
-            <a href="#"></a>
-        </div><!-- ends downbutton -->
+            <div class="downbutton" style="display:none;">
+                <a href="#"></a>
+            </div><!-- ends downbutton -->
 
-        <div class="upbutton" style="display:block;">
-            <a href="#"></a>
-        </div><!-- ends upbutton -->
+            <div class="upbutton" style="display:block;">
+                <a href="#"></a>
+            </div><!-- ends upbutton -->
     </div><!-- ends .crm-header -->
 
     <div class="container" style="display:block;">
@@ -64,14 +64,6 @@
         <hr>
     {/if}
 
-    {if $node.data_map.notes.has_content}
-        <span class="client_info_left">Notes:</span>
-        <span class="client_info_right">
-            {attribute_view_gui attribute=$node.data_map.notes}
-        </span>
-        <hr>
-    {/if}
-
     {if $node.data_map.estimated_value.has_content}
         <span class="client_info_left">Estimated Value:</span>
         <span class="client_info_right">
@@ -105,3 +97,8 @@
 
     </div><!-- ends .container -->
 </div><!-- ends .content_left -->
+</div><!-- ends .content_left_wrapper -->
+
+<div class="right_content_wrapper">
+	{include uri="design:parts/admin_preview/crm_project_notes.tpl" node=$node}
+</div> <!-- end right_content_wrapper -->
