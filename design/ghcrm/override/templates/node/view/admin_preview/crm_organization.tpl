@@ -166,7 +166,7 @@
 <div class="right_content_wrapper">{* This div ends in the middle of the crm_pending activities include below *}
 
 {include uri="design:parts/admin_preview/crm_contacts_list.tpl" node=$node}
-{include uri="design:parts/admin_preview/crm_projects_list.tpl" node=$node}
+{include uri="design:parts/admin_preview/crm_opportunities_list.tpl" node=$node}
 {include uri="design:parts/admin_preview/crm_pending_activities.tpl" node=$node}
 {include uri="design:parts/admin_preview/crm_recent_activities.tpl" node=$node}
 
