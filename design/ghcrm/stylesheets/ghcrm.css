@@ -316,8 +316,8 @@ a:hover#sort_desc {
     margin:3px 0 0 10px;
     position:absolute;
 }
-.crm-header .project_icon {
-    background: url('../images/project_icon.png') no-repeat;
+.crm-header .opportunity_icon {
+    background: url('../images/opportunity_icon.png') no-repeat;
     width:35px;
     height:35px;
     display:inline-block;
@@ -508,7 +508,7 @@ a.close_div {
 .content_right ul li {
     margin:5px 0;
 }
-.contacts_list, .projects_list {
+.contacts_list, .opportunities_list {
     min-width:40%;
     display:inline-block;
 }
@@ -542,19 +542,25 @@ table.list .organization_contact {
 table.list .organization {
     width:303px;
 }
-table.list .project {
+table.list .opportunity {
     width:303px;
 }
 table.list .assigned_to {
     width:140px;
 }
-.no_projects, .no_contacts, .no_notes, .no_activity_notes, .no_project_notes, .no_contact_notes {
+.no_opportunities, .no_contacts, .no_notes, .no_activity_notes, .no_opportunity_notes, .no_contact_notes {
    color:#fff;
    font-weight:bolder;
    font-size:1.2em; 
 }
-.no_projects, .no_contacts, .no_activity_notes, .no_project_notes, .no_contact_notes {
+.no_contacts, .no_activity_notes, .no_contact_notes {
    padding-left:148px;
+}
+.no_opportunity_notes {
+   padding-left:184px;
+}
+.no_opportunities {
+   padding-left:190px;
 }
 .no_notes {
    padding-left:192px;
