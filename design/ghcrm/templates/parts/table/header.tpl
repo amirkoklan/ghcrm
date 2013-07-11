@@ -15,8 +15,8 @@
     {include uri='design:parts/table/headers/crm_contact.tpl' fields=$fields}
 {elseif eq( $tab.class_id, "crm_latest_sales_content" )}
     {include uri='design:parts/table/headers/crm_latest_sales_content.tpl' fields=$fields}
-{elseif eq( $tab.class_id, "crm_project" )}
-        {include uri='design:parts/table/headers/crm_project.tpl' fields=$fields}
+{elseif eq( $tab.class_id, "crm_opportunity" )}
+        {include uri='design:parts/table/headers/crm_opportunity.tpl' fields=$fields}
 {else}
     {'Error!'|wash()}
 {/if}
