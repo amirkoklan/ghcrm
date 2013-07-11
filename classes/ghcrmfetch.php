@@ -87,8 +87,8 @@ class GHCRMFetch extends ezjscServerFunctions
         $sort_mechanism = array( 'modified', $sort_order );
     }
 
-    // CRM Project Settings
-    if ( strcmp( $class_id, "crm_project" ) == 0 )
+    // CRM Opportunity Settings
+    if ( strcmp( $class_id, "crm_opportunity" ) == 0 )
     {
         $attribute_filter = array( array( $sort_field, '<', '12' ));
     }
