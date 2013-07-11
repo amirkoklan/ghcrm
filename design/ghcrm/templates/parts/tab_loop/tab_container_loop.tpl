@@ -8,8 +8,8 @@
                     {include uri='design:dashboard/crm_activity.tpl' tab=$tab}
             {elseif eq( $tab.class_id, "crm_latest_sales_content" )}
                     {include uri='design:dashboard/crm_latest_sales_content.tpl' tab=$tab}
-            {elseif eq( $tab.class_id, "crm_project" )}
-                    {include uri='design:dashboard/crm_project.tpl' tab=$tab}
+            {elseif eq( $tab.class_id, "crm_opportunity" )}
+                    {include uri='design:dashboard/crm_opportunity.tpl' tab=$tab}
             {else}
                     {include uri='design:dashboard/crm_latest_content.tpl' tab=$tab}
             {/if}
