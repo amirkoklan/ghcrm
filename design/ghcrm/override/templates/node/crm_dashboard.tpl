@@ -11,9 +11,9 @@
                              'sort_field', 'date_scheduled' )
 
      $tab_container2 = hash( 'tab_id', 'crm_tab_1',
-                             'class_id', 'crm_project', 
+                             'class_id', 'crm_opportunity', 
                              'header', 'Pipeline Report', 
-                             'button', 'Project',
+                             'button', 'Opportunity',
                              'sort_order', false(), 
                              'sort_field', 'status' )
 
