@@ -28,11 +28,11 @@ MatchFile=node/crm_email_admin_preview.tpl
 Subdir=templates
 Match[class_identifier]=crm_email
 
-[crm_project_admin_preview]
+[crm_opportunity_admin_preview]
 Source=node/view/admin_preview.tpl
-MatchFile=node/crm_project_admin_preview.tpl
+MatchFile=node/crm_opportunity_admin_preview.tpl
 Subdir=templates
-Match[class_identifier]=crm_project
+Match[class_identifier]=crm_opportunity
 
 [crm_activity_admin_preview]
 Source=node/view/admin_preview.tpl
@@ -77,11 +77,11 @@ MatchFile=line/crm_activity.tpl
 Subdir=templates
 Match[class_identifier]=crm_activity
 
-[crm_project_line]
+[crm_opportunity_line]
 Source=content/view/line.tpl
-MatchFile=line/crm_project.tpl
+MatchFile=line/crm_opportunity.tpl
 Subdir=templates
-Match[class_identifier]=crm_project
+Match[class_identifier]=crm_opportunity
 
 [crm_email_line]
 Source=content/view/line.tpl
