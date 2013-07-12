@@ -20,7 +20,7 @@ Included in this installation:
 -CSS Rules
 -JavaScript
 -Permissions
--Custom Classes (gh_crm_content_classes_v3-1.2-1.ezpkg)
+-Custom Classes (gh_crm_content_classes_v4-1.3-1.ezpkg)
 
 INSTALLATION
 ------------
@@ -31,7 +31,7 @@ INSTALLATION
 #2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies.
 
 # Event class already existed with demo content site package - go ahead and replace event class
-3. In Setup -> Packages tab run the .ezpkz file to import and create custom classes. (ghcrm/packages/gh_crm_content_classes_v3-1.2-1.ezpkg)
+3. In Setup -> Packages tab run the .ezpkz file to import and create custom classes. (ghcrm/packages/gh_crm_content_classes_v4-1.3-1.ezpkg)
 
 4. Add the extension to the ActiveAccessExtensions[] list in your admin_siteaccess/site.ini under [ExtensionSettings] 
     [ExtensionSettings]
