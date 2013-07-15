@@ -7,6 +7,10 @@
         <h2 class="no_website"> 
             {$node.object.contentobject_attributes.0.data_text}
             <span class="email_icon"></span>
+            {if eq( $node.parent.data_map.do_not_contact.data_int, 1 )}
+                <span class="do_not_contact_icon"></span>
+                <span class="do_not_contact_text">(Do Not Contact List)</span>
+            {/if}
         </h2>
     </div><!-- ends crm-header -->
 
