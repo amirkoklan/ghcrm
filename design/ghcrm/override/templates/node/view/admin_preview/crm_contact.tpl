@@ -46,6 +46,14 @@
 <div class="container" style="display:block;">
 
     {* Display the basic information *}
+    {if eq( $node.data_map.do_not_contact.data_int, 1 )}
+    <span class="client_info_left do_not_call">Do Not Call List:</span> 
+    <span class="client_info_right do_not_call">    
+        Please do not contact this client.
+	</span>        
+    <hr>
+    {/if}
+
     {if $node.data_map.id_photo.has_content}
         <div class="contact_photo" style="float:right;">
             {attribute_view_gui attribute=$node.data_map.id_photo image_class=medium}
