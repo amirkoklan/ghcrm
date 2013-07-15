@@ -73,12 +73,17 @@ INSTALLATION
     ShowClasses[]=crm_event
     ShowClasses[]=crm_organization
 
-8. Clear your caches (ezcache.php --clear-all --purge)
+8. Add the setting below to settings/override/viewcache.ini.append.php.
 
-9. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
+    [crm_contact]
+    ClearCacheMethod[]=children
+
+9. Clear your caches (ezcache.php --clear-all --purge)
+
+10. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
 
 # Didn't set up Sales group. Using administrator account.
-10. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
+11. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
 
 /* CRM Workflow and trigger */
 1. Create two workflows.
