@@ -339,6 +339,21 @@ a:hover#sort_desc {
     margin:3px 0 0 52px;
     position:absolute;
 }
+.crm-header .do_not_contact_icon {
+    background: url('../images/do_not_call_icon.png') no-repeat;
+    width:35px;
+    height:35px;
+    display:inline-block;
+    margin:3px 0 0 53px;
+    position:absolute;
+}
+.crm-header .do_not_contact_text {
+    display:inline-block;
+    margin:0 0 0 96px;
+    position:absolute;
+    color:#E24602;
+    font-weight:normal;
+}
 .crm-header:hover a.title {
     height:40px;
    // background: url('../images/admin_bg_hover.jpg') repeat-x;
@@ -496,6 +511,9 @@ a.close_div {
 .client_info_right {
     display:inline-block;
     max-width:70%;
+}
+.do_not_call {
+    color:#E24602;
 }
 .client_info_right_title {
     max-width:70%;
