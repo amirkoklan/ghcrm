@@ -35,7 +35,7 @@
         <input type="hidden" name="ContentObjectID" value="{$node.parent.contentobject_id}" />
         <input type="hidden" name="SortingField" value="6" />
         <input type="hidden" name="SortingOrder" value="1" />
-        <input src={"add_new.png"|ezimage()} type="image" title="Add New Contact" class="add_new_button_dropdown" value="Submit" alt="Submit" />
+        <input id="add_contact_small" type="submit" class="add_new_button_dropdown" value="" />
     </form>
 
     {if ne($count, '0')}
