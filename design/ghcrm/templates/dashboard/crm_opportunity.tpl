@@ -42,10 +42,7 @@
                     <input type="hidden" name="ContentObjectID" value="{$parent_obj_id}" />
                     <input type="hidden" name="SortingField" value="6" />
                     <input type="hidden" name="SortingOrder" value="1" />
-                    <input onmouseover='this.src={"add_new_button_hover.png"|ezimage()}'
-                           onmouseout='this.src={"add_new_button.png"|ezimage()}'
-                           type="image" src={"add_new_button.png"|ezimage()} class="add_new_button" value="Submit" alt="Submit" />
-                    <div class="add_new_text">Add New <br />{$tab.button}</div><!-- ends add_new_text -->
+                    <input id="add_opportunity" type="submit" class="add_new_button" value="Add New&#10;{$tab.button}" />
                 </form>
             </div><!-- .add_new -->
 
