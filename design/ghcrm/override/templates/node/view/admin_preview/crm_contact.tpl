@@ -20,8 +20,8 @@
             <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
             <input type="hidden" name="SortingField" value="6" />
             <input type="hidden" name="SortingOrder" value="1" />
-            <input onmouseover='this.src={"send_email_icon_hover.png"|ezimage()}'                                                                                       onmouseout='this.src={"send_email_icon.png"|ezimage()}'
-                   type="image" src={"send_email_icon.png"|ezimage()} class="pending_button" value="Submit" alt="Submit" />                                 </form>
+            <input id="add_send_email" type="submit" class="add_new_button" value="" />
+        </form>
     </div>
 
 </h2>
