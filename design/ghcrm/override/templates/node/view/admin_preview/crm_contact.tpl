@@ -60,22 +60,27 @@
         </div><!-- ends contact_photo -->
     {/if}
 
-{if $node.data_map.title.has_content}
-    {if $node.data_map.id_photo.has_content}
-    <span class="client_info_left_title">Title:</span>
-    <span class="client_info_right_title">
+{if and($node.data_map.title.has_content, $node.data_map.id_photo.has_content)}
+    <span class="client_info_left_with_id_photo">Title:</span>
+    <span class="client_info_right_with_id_photo">
         {attribute_view_gui attribute=$node.data_map.title}
     </span>
-    {else}
+	<hr>
+{elseif $node.data_map.title.has_content}
     <span class="client_info_left">Title:</span>
     <span class="client_info_right">
         {attribute_view_gui attribute=$node.data_map.title}
     </span>
-    {/if}
  <hr>
 {/if}
 
-{if $node.data_map.phone_1.has_content}
+{if and($node.data_map.phone_1.has_content, $node.data_map.id_photo.has_content)}
+    <span class="client_info_left_with_id_photo">Primary Phone:</span> 
+    <span class="client_info_right_with_id_photo">    
+        {attribute_view_gui attribute=$node.data_map.phone_1}
+    </span>        
+    <hr>
+{elseif $node.data_map.phone_1.has_content}
     <span class="client_info_left">Primary Phone:</span> 
     <span class="client_info_right">    
         {attribute_view_gui attribute=$node.data_map.phone_1}
@@ -83,15 +88,27 @@
     <hr>
 {/if}
 
-{if $node.data_map.phone_2.has_content}
-    <span class="client_info_left">Alternate Phone:</span>
+{if and($node.data_map.phone_2.has_content, $node.data_map.id_photo.has_content)}
+    <span class="client_info_left_with_id_photo">Alternate Phone:</span>
+    <span class="client_info_right_with_id_photo">
+        {attribute_view_gui attribute=$node.data_map.phone_2}
+    </span>        
+    <hr>
+{elseif $node.data_map.phone_2.has_content}
+    <span class="clienti_info_left">Alternate Phone:</span>
     <span class="client_info_right">
         {attribute_view_gui attribute=$node.data_map.phone_2}
     </span>        
     <hr>
 {/if}
 
-{if $node.data_map.email.has_content}
+{if and($node.data_map.email.has_content, $node.data_map.id_photo.has_content)}
+    <span class="client_info_left_with_id_photo">Email:</span>
+    <span class="client_info_right_with_id_photo">
+        {attribute_view_gui attribute=$node.data_map.email}
+    </span>
+    <hr>
+{elseif $node.data_map.email.has_content}
     <span class="client_info_left">Email:</span>
     <span class="client_info_right">
         {attribute_view_gui attribute=$node.data_map.email}
@@ -99,6 +116,18 @@
     <hr>
 {/if}
 
+{if and($node.parent.data_map.name.has_content, $node.data_map.id_photo.has_content)}
+<span class="client_info_left_with_id_photo">Organization:</span><span class="client_info_right_with_id_photo"> {node_view_gui content_node=$node.parent view='line'}</span>
+    {if $node.parent.can_edit}
+        <a href="{concat( 'content/edit/', $node.parent.contentobject_id )|ezurl('no')}">
+            <img src={'edit.gif'|ezimage} alt="Edit" title="Edit {$node.parent.name|wash()}" />
+        </a>
+        <hr>
+    {else}
+        <img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$node.parent.name|wash()}." />
+        <hr>
+    {/if}
+{elseif $node.parent.name.has_content}
 <span class="client_info_left">Organization:</span><span class="client_info_right"> {node_view_gui content_node=$node.parent view='line'}</span>
     {if $node.parent.can_edit}
         <a href="{concat( 'content/edit/', $node.parent.contentobject_id )|ezurl('no')}">
@@ -109,19 +138,16 @@
         <img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$node.parent.name|wash()}." />
         <hr>
     {/if}
+{/if}
 
-<span class="client_info_left">Social Media:</span> 
-
-{if $node.data_map.personal_email.has_content}
-    <a href="mailto:{$node.data_map.personal_email.content|wash()}">
-        <img class="gradualfader" src={'images/email.png'|ezdesign()} alt="{$node.data_map.personal_email.content|wash()}" height="32px" width="32px" />
-    </a>
+{if and($node.data_map.id_photo.has_content, or($node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content))}
+    <span class="client_info_left">Social Media:</span><br />
+{elseif or($node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content))}
+    <span class="client_info_left">Social Media:</span>
 {/if}
 
 {if $node.data_map.twitter_id.has_content}
-    <a href="http://twitter.com/{$node.data_map.twitter_id.content|wash()}">
-        <img class="gradualfader" src={'images/twitter.png'|ezdesign()} alt="{$node.data_map.twitter_id.content|wash()}" height="32px" width="32px" />
-    </a>
+    <a href="http://twitter.com/{$node.data_map.twitter_id.content|wash()}"><img class="gradualfader" src={'images/twitter.png'|ezdesign()} alt="{$node.data_map.twitter_id.content|wash()}" height="32px" width="32px" /></a>
 {/if}
 
 {if $node.data_map.skype_id.has_content}<a href="skype:{$node.data_map.skype_id.content|wash()}?userinfo"><img class="gradualfader" src={'images/skype.png'|ezdesign()} alt="{$node.data_map.skype_id.content|wash()}" height="32px" width="32px" /></a>{/if}
@@ -130,9 +156,11 @@
 
 {if $node.data_map.blog.has_content}<a href="{$node.data_map.blog.content|wash()}"><img class="gradualfader" src={'images/blog.png'|ezdesign()} alt="{$node.data_map.blog.content|wash()}" height="32px" width="32px" /></a>{/if}
 
-{attribute_view_gui attribute=$node.data_map.other_social_networks}<br />
+{if $node.data_map.other_social_networks.has_content}
+    {attribute_view_gui attribute=$node.data_map.other_social_networks}<br />
+{/if}
 
-{if or($node.data_map.email.has_content, $node.data_map.personal_email, $node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content)}
+{if or($node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content)}
     <hr>
 {/if}
 
@@ -182,8 +210,7 @@
 {if or( $node.data_map.home_address.has_content,
         $node.data_map.home_city.has_content,
         $node.data_map.home_state.has_content,
-        $node.data_map.home_zip.has_content,
-        $node.data_map.country.has_content )}
+        $node.data_map.home_zip.has_content )}
 <div class="crm_address_info right">
     <span class="client_info_left">Home Address:</span>
     <span class="client_info_right">
@@ -210,8 +237,7 @@
 {if or( $node.data_map.business_address.has_content,
         $node.data_map.business_city.has_content,
         $node.data_map.business_state.has_content,
-        $node.data_map.business_zip.has_content,
-        $node.data_map.country.has_content )}
+        $node.data_map.business_zip.has_content )}
 <div class="crm_address_info right">
     <span class="client_info_left">Business Address:</span>
     <span class="client_info_right">
