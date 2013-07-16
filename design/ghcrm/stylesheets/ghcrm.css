@@ -41,6 +41,7 @@ p.crm_error{
 }
 .gradualfader{ 
   opacity: 0.5;
+  margin:3px 6px 0 0;
 }
 .ghcrm-selected{
   background-color: #aaaaaa;
@@ -488,6 +489,8 @@ a.close_div {
 }
 .container {
     padding:15px;
+    overflow:auto;
+    clear:both;
 }
 .downbutton a {
     background: url('../images/arrow_down_div.png');
@@ -532,7 +535,7 @@ a.close_div {
     float:left;
     padding-right:5px;
 }
-.client_info_left_title {
+.client_info_left_with_id_photo {
     font-weight:bold;
     display:inline-block;
     float:left;
@@ -545,7 +548,7 @@ a.close_div {
 .do_not_call {
     color:#E24602;
 }
-.client_info_right_title {
+.client_info_right_with_id_photo {
     max-width:70%;
 }
 .content_right ul {
