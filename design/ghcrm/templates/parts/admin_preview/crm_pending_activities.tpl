@@ -15,10 +15,7 @@
             <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
             <input type="hidden" name="SortingField" value="6" />
             <input type="hidden" name="SortingOrder" value="1" />
-            <input onmouseover='this.src={"add_new_button_hover.png"|ezimage()}'
-                    onmouseout='this.src={"add_new_button.png"|ezimage()}'
-                    type="image" src={"add_new_button.png"|ezimage()} class="pending_button" value="Submit" alt="Submit" />
-               <div class="add_new_text pending_activities">Add New <br />Activity</div><!-- ends add_new_text -->
+            <input id="add_activity" type="submit" class="add_new_button" value="Add New&#10;Activity" />
         </form>
     </div>
 </div><!-- ends pending_activities_right-->
