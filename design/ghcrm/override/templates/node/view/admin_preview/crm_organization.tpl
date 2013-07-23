@@ -7,11 +7,11 @@
 
     {if $node.data_map.website.has_content}
         <h2>
-            <a class="title" href="{$node.data_map.website.content}" target="_blank" title="{$node.data_map.name.content|wash()} - website">{$node.data_map.name.content|wash()}<span class="website_icon"></span>
+            <a class="title" href="{$node.data_map.website.content}" target="_blank" title="{$node.data_map.name.content|wash()} - website">{$node.data_map.name.content|shorten('60')}<span class="website_icon"></span>
             </a>
         </h2>
     {else}
-        <h2 class="no_website">{$node.data_map.name.content|wash()}<span class="website_icon"></span></h2>
+        <h2 class="no_website">{$node.data_map.name.content|shorten('60')}<span class="website_icon"></span></h2>
     {/if}
 
     <div class="header_right">
