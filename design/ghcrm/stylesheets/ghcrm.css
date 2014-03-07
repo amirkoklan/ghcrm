@@ -26,6 +26,10 @@ table.list th {
     color-stop(0.19, rgb(228,227,228)),
     color-stop(0.6, rgb(253,253,253))
   );
+  color: #565656;
+}
+table.list th.first {
+  border: none;
 }
 table.list img {
   margin: 0 3px 0;
