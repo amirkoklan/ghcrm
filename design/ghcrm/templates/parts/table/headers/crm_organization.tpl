@@ -3,7 +3,7 @@
    Granite Horizon CRM *}
 
 <tr>
-    <th class="organization">{'Organization'|i18n( 'design/admin/dashboard/latest_content' )}</th>
+    <th class="first organization">{'Organization'|i18n( 'design/admin/dashboard/latest_content' )}</th>
     <th>{'City'|i18n( 'design/admin/dashboard/latest_content' )}</th>
     <th class="phone">{'Phone'|i18n( 'design/admin/dashboard/latest_content' )}</th>
     <th class="organization_contact">{'Contacts'|i18n( 'design/admin/dashboard/latest_content' )}</th>
