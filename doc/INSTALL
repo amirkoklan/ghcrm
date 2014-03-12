@@ -71,14 +71,10 @@ INSTALLATION
     [crm_contact]
     ClearCacheMethod[]=children
 
-# Not supporting this right now... Not tested
-#2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies.
-
 9. Clear your caches.
 
 10. Regenerate autoload arrays (bin/php/ezpgenerateautoloads.php --extension)
 
-# BRANDON?
 11. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
 
 12. Create two workflows.
