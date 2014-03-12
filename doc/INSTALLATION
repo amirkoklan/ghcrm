@@ -2,12 +2,11 @@
    Purpose: Documenation on how to install the Granite Horizon CRM extension.
    Granite Horizon CRM */
 
-"Granite CRM" created by Granite Horizon, LLC (http://granitehorizon.com)
-http://granitehorizon.com
+"Granite Horizon CRM" created by Granite Horizon, LLC (http://granitehorizon.com)
 
 REQUIREMENTS
 -------------
--eZ Publish 4.7-5.2 installed
+-eZ Publish 4.7-5.2 installed with functioning outbound email transport
 -ezjscore already installed and functioning WITH jQuery
     -See http://share.ez.no/articles/ez-publish/ezjscore-ez-publish-javascript-and-ajax-framework
 
@@ -20,25 +19,23 @@ Included in this installation:
 -CSS Rules
 -JavaScript
 -Permissions
--Custom Classes (gh_crm_content_classes_v4-1.3-1.ezpkg)
+-Custom Classes (granite_horizon_crm_content_classes-1.0-1.ezpkg)
 
 INSTALLATION
 ------------
 
 1. Unpack and install the ghcrm extension to [ezroot]/extension. 
 
-# Not supporting this right now... Not tested
-#2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies.
+2. In the Setup -> Packages tab import the .ezpkz file to create the custom CRM content classes (found in the packages direcotry).
 
-# Event class already existed with demo content site package - go ahead and replace event class
-3. In Setup -> Packages tab run the .ezpkz file to import and create custom classes. (ghcrm/packages/gh_crm_content_classes_v4-1.3-1.ezpkg)
+3. Add the extension to the ActiveAccessExtensions[] list in your settings/siteaccess/[YOUR ADMIN SITEACCESS]/site.ini.append.php:
 
-4. Add the extension to the ActiveAccessExtensions[] list in your admin_siteaccess/site.ini under [ExtensionSettings] 
     [ExtensionSettings]
     ActiveAccessExtensions[]=ghcrm
 
-5. Add the extension to the AdditionalSiteDesignList[] in your admin siteaccess site.ini under [DesignSettings].
-    NOTE: The extension MUST be first in the list!
+4. Add the extension to the AdditionalSiteDesignList[] in your admin siteaccess site.ini under [DesignSettings].
+    NOTE: The extension must be before admin2 and admin.
+
     BEFORE:
         AdditionalSiteDesignList[]=admin2
         AdditionalSiteDesignList[]=admin
@@ -48,20 +45,17 @@ INSTALLATION
         AdditionalSiteDesignList[]=admin2
         AdditionalSiteDesignList[]=admin
 
-# Was not able to move the Sales folder to one level higher paralell with the Home/Root node.
-6. Create a "Sales" folder somewhere in your content structure. Note the NodeID of the Sales folder. (NOT the Object ID).
+5. Create a "Sales" folder somewhere in your content structure. Note the Node ID of the Sales folder.
 
-    Set the RootNode to the node id in: 
-        ghcrm/settings/content.ini (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
-        ghcrm/settings/ghcrm.ini (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
+    Set the RootNode to the Sales folder's node id in the following files (thse settings can be added into your admin siteaccesses extension for easier upgrading of the extension.
+        extension/ghcrm/settings/content.ini.append.php (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
+        extension/ghcrm/settings/ghcrm.ini.append.php (under the [CRMNodeSettings] section) - RootNode=[Root Node Goes Here]
                                                                          EmailTemplateContainerNode=[Root Node Goes Here]
                                                                          PutNewEntriesHereNode=[Root Node Goes Here]
-        ghcrm/settings/menu.ini (under the [Topmenu_crm] section) - content/view/full/[Root Node Goes Here]
-        ghcrm/settings/override.ini (under the [crm_sales] section) - Match[node]= [Root Node Goes Here]
+        extension/ghcrm/settings/menu.ini.append.php (under the [Topmenu_crm] section) - content/view/full/[Root Node Goes Here]
+        extension/ghcrm/settings/override.ini.append.php (under the [crm_sales] section) - Match[node]= [Root Node Goes Here]
 
-    *** Note: For easy maintenence on upgrading the GH CRM extention copy all the Root Node ID's specific to your site into the settings in the admin siteaccess. ***
-
-7. Add these classes to the Tree Menu in to settings/siteaccess/[admin siteaccess]/contentstructuremenu.ini.append.php  
+7. Add these classes to the Tree Menu in settings/siteaccess/[YOUR ADMIN SITEACCESS]/contentstructuremenu.ini.append.php  
 
     [TreeMenu]
     ShowClasses[]=crm_contact
@@ -72,29 +66,30 @@ INSTALLATION
     ShowClasses[]=crm_event
     ShowClasses[]=crm_organization
 
-8. Add the setting below to settings/override/viewcache.ini.append.php.
+8. Add the setting below to settings/override/viewcache.ini.append.php:
 
     [crm_contact]
     ClearCacheMethod[]=children
 
-9. Clear your caches (ezcache.php --clear-all --purge)
+# Not supporting this right now... Not tested
+#2. Create new usergroup "Sales", add new "Sales" Role with "No limitation", then create the user policies.
 
-10. Regenerate autoload arrays (ezpgenerateautloads.php --extension)
+9. Clear your caches.
 
-# Didn't set up Sales group. Using administrator account.
+10. Regenerate autoload arrays (bin/php/ezpgenerateautoloads.php --extension)
+
+# BRANDON?
 11. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
 
-/* CRM Workflow and trigger */
-1. Create two workflows.
+12. Create two workflows.
     -  Go to the Setup Tab in eZ Publish -> Workflows. Create a new workflow group called GHCRM, then create two new workflows in GHCRM. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
     *** Note: Workflows have to be exact for email to send. ***
 
-2. Add a trigger.
+13. Add a trigger.
     - Go to the Setup Tab in eZ Publish -> Triggers (workflows must be set up first)
     - Select GHCRM Send Email Multiplexer from the dropdown for the (content/publish/after) workflow.
 
 /* Steps to send CRM Email */
 1. Create email. Click the Create new button and selected CRM Email from the dropdown.
 
-2. You can either Save and Send Later (publishes but does not send), or Send Email Now. 
-
+2. You can either Save and Send Later (publishes but does not send), or Send Email Now.
