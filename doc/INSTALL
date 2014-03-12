@@ -1,4 +1,4 @@
-/* File: INSTALLATION 
+/* File: INSTALL
    Purpose: Documenation on how to install the Granite Horizon CRM extension.
    Granite Horizon CRM */
 
@@ -24,7 +24,7 @@ Included in this installation:
 INSTALLATION
 ------------
 
-1. Unpack and install the ghcrm extension to [ezroot]/extension. 
+1. Unpack/unzip (if necessary) and copy the ghcrm extension to [ezroot]/extension. 
 
 2. In the Setup -> Packages tab import the .ezpkz file to create the custom CRM content classes (found in the packages direcotry).
 
