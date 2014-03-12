@@ -75,7 +75,7 @@ INSTALLATION
 
 9. Regenerate autoload arrays (bin/php/ezpgenerateautoloads.php --extension)
 
-10. If a user group other than admin will be using Granite Horizon CRM, add for that group the policy: ezjscore - call - ghcrm_get_dataset.
+10. If a user group other than admin will be using Granite Horizon CRM, add for that group the policy: ezjscore - call - ghcrm_get_dataset. Also be sure this user has permission to read, create, etc. in the Sales subtree.
 
 11. Create two workflows.
     -  Go to the Setup Tab in eZ Publish -> Workflows. Create a new workflow group called GHCRM, then create two new workflows in GHCRM. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
