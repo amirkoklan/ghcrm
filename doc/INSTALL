@@ -75,7 +75,7 @@ INSTALLATION
 
 10. Regenerate autoload arrays (bin/php/ezpgenerateautoloads.php --extension)
 
-11. Make sure the user group you intend to use has access to ezjscore::GHCRMFetch::getDataSet if you use the Sales group and not just the administrator account.
+11. If a user group other than admin will be using Granite Horizon CRM, add for that group the policy: ezjscore - call - ghcrm_get_dataset.
 
 12. Create two workflows.
     -  Go to the Setup Tab in eZ Publish -> Workflows. Create a new workflow group called GHCRM, then create two new workflows in GHCRM. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
@@ -86,6 +86,7 @@ INSTALLATION
     - Select GHCRM Send Email Multiplexer from the dropdown for the (content/publish/after) workflow.
 
 /* Steps to send CRM Email */
+
 1. Create email. Click the Create new button and selected CRM Email from the dropdown.
 
 2. You can either Save and Send Later (publishes but does not send), or Send Email Now.
