@@ -55,7 +55,7 @@ INSTALLATION
         extension/ghcrm/settings/menu.ini.append.php (under the [Topmenu_crm] section) - content/view/full/[Root Node Goes Here]
         extension/ghcrm/settings/override.ini.append.php (under the [crm_sales] section) - Match[node]= [Root Node Goes Here]
 
-7. Add these classes to the Tree Menu in settings/siteaccess/[YOUR ADMIN SITEACCESS]/contentstructuremenu.ini.append.php  
+6. Add these classes to the Tree Menu in settings/siteaccess/[YOUR ADMIN SITEACCESS]/contentstructuremenu.ini.append.php  
 
     [TreeMenu]
     ShowClasses[]=crm_contact
@@ -66,22 +66,22 @@ INSTALLATION
     ShowClasses[]=crm_event
     ShowClasses[]=crm_organization
 
-8. Add the setting below to settings/override/viewcache.ini.append.php:
+7. Add the setting below to settings/override/viewcache.ini.append.php:
 
     [crm_contact]
     ClearCacheMethod[]=children
 
-9. Clear your caches.
+8. Clear your caches.
 
-10. Regenerate autoload arrays (bin/php/ezpgenerateautoloads.php --extension)
+9. Regenerate autoload arrays (bin/php/ezpgenerateautoloads.php --extension)
 
-11. If a user group other than admin will be using Granite Horizon CRM, add for that group the policy: ezjscore - call - ghcrm_get_dataset.
+10. If a user group other than admin will be using Granite Horizon CRM, add for that group the policy: ezjscore - call - ghcrm_get_dataset.
 
-12. Create two workflows.
+11. Create two workflows.
     -  Go to the Setup Tab in eZ Publish -> Workflows. Create a new workflow group called GHCRM, then create two new workflows in GHCRM. (See send_email_workflow.jpg & send_email_multiplexer_workflow.jpg)
     *** Note: Workflows have to be exact for email to send. ***
 
-13. Add a trigger.
+12. Add a trigger.
     - Go to the Setup Tab in eZ Publish -> Triggers (workflows must be set up first)
     - Select GHCRM Send Email Multiplexer from the dropdown for the (content/publish/after) workflow.
 
