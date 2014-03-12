@@ -2,12 +2,12 @@
    Purpose: Documenation on how to install the Granite Horizon CRM extension.
    Granite Horizon CRM */
 
-"Granite CRM" created by Granite Horizon, LLC
+"Granite CRM" created by Granite Horizon, LLC (http://granitehorizon.com)
 http://granitehorizon.com
 
 REQUIREMENTS
 -------------
--eZ Publish 4.7 installed (NOT TESTED ON OTHER VERSIONS)
+-eZ Publish 4.7-5.2 installed
 -ezjscore already installed and functioning WITH jQuery
     -See http://share.ez.no/articles/ez-publish/ezjscore-ez-publish-javascript-and-ajax-framework
 
@@ -36,7 +36,6 @@ INSTALLATION
 4. Add the extension to the ActiveAccessExtensions[] list in your admin_siteaccess/site.ini under [ExtensionSettings] 
     [ExtensionSettings]
     ActiveAccessExtensions[]=ghcrm
-
 
 5. Add the extension to the AdditionalSiteDesignList[] in your admin siteaccess site.ini under [DesignSettings].
     NOTE: The extension MUST be first in the list!
