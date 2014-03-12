@@ -14,7 +14,7 @@ include_once( 'kernel/common/template.php' );
 
 class GHCRMFetch extends ezjscServerFunctions
 {
-    public static function getDataSet( $args )
+    public static function ghcrm_get_dataset( $args )
     {
 
     $ini = eZINI::instance( 'content.ini' );

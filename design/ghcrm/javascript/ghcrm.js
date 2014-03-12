@@ -141,7 +141,7 @@ function CRMstoreVars( innervar, v, struct_id ){
 function GHCRMServerCall( struct_id, fetch_element ){
     obj = window[struct_id];
 
-    $.ez( 'ghcrmfetch::getdataset', {class_id: obj.class_id, sort_order: obj.sort, sort_by: obj.field, limit: obj.limit}, function( ezp_data )
+    $.ez( 'ghcrmfetch::ghcrm_get_dataset', {class_id: obj.class_id, sort_order: obj.sort, sort_by: obj.field, limit: obj.limit}, function( ezp_data )
     {
         if ( ezp_data.error_text )
         {
