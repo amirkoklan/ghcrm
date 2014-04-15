@@ -47,10 +47,10 @@
 
     {* Display the basic information *}
     {if eq( $node.data_map.do_not_contact.data_int, 1 )}
-    <span class="client_info_left do_not_call">Do Not Call List:</span> 
-    <span class="client_info_right do_not_call">    
+    <span class="client_info_left do_not_call">Do Not Call List:</span>
+    <span class="client_info_right do_not_call">
         Please do not contact this client.
-	</span>        
+    </span>
     <hr>
     {/if}
 
@@ -65,26 +65,26 @@
     <span class="client_info_right_with_id_photo">
         {attribute_view_gui attribute=$node.data_map.title}
     </span>
-	<hr>
+    <hr>
 {elseif $node.data_map.title.has_content}
     <span class="client_info_left">Title:</span>
     <span class="client_info_right">
         {attribute_view_gui attribute=$node.data_map.title}
     </span>
- <hr>
+    <hr>
 {/if}
 
 {if and($node.data_map.phone_1.has_content, $node.data_map.id_photo.has_content)}
-    <span class="client_info_left_with_id_photo">Primary Phone:</span> 
-    <span class="client_info_right_with_id_photo">    
-        {attribute_view_gui attribute=$node.data_map.phone_1}
-    </span>        
+    <span class="client_info_left_with_id_photo">Primary Phone:</span>
+    <span class="client_info_right_with_id_photo">		
+       {attribute_view_gui attribute=$node.data_map.phone_1}
+    </span>
     <hr>
 {elseif $node.data_map.phone_1.has_content}
-    <span class="client_info_left">Primary Phone:</span> 
-    <span class="client_info_right">    
+    <span class="client_info_left">Primary Phone:</span>
+    <span class="client_info_right">
         {attribute_view_gui attribute=$node.data_map.phone_1}
-    </span>        
+    </span>
     <hr>
 {/if}
 
@@ -92,62 +92,61 @@
     <span class="client_info_left_with_id_photo">Alternate Phone:</span>
     <span class="client_info_right_with_id_photo">
         {attribute_view_gui attribute=$node.data_map.phone_2}
-    </span>        
+    </span>
     <hr>
 {elseif $node.data_map.phone_2.has_content}
     <span class="clienti_info_left">Alternate Phone:</span>
     <span class="client_info_right">
-        {attribute_view_gui attribute=$node.data_map.phone_2}
-    </span>        
+	    {attribute_view_gui attribute=$node.data_map.phone_2}
+    </span>
     <hr>
 {/if}
 
 {if and($node.data_map.email.has_content, $node.data_map.id_photo.has_content)}
     <span class="client_info_left_with_id_photo">Email:</span>
     <span class="client_info_right_with_id_photo">
-        {attribute_view_gui attribute=$node.data_map.email}
+        <a href="mailto:{attribute_view_gui attribute=$node.data_map.email}" target="_top">{attribute_view_gui attribute=$node.data_map.email}</a>
     </span>
     <hr>
 {elseif $node.data_map.email.has_content}
     <span class="client_info_left">Email:</span>
-    <span class="client_info_right">
-        {attribute_view_gui attribute=$node.data_map.email}
-    </span>
-    <hr>
+	<span class="client_info_right">
+        <a href="mailto:{attribute_view_gui attribute=$node.data_map.email}" target="_top">{attribute_view_gui attribute=$node.data_map.email}</a>
+	</span>
+	<hr>
 {/if}
 
 {if and($node.parent.data_map.name.has_content, $node.data_map.id_photo.has_content)}
 <span class="client_info_left_with_id_photo">Organization:</span><span class="client_info_right_with_id_photo"> {node_view_gui content_node=$node.parent view='line'}</span>
     {if $node.parent.can_edit}
         <a href="{concat( 'content/edit/', $node.parent.contentobject_id )|ezurl('no')}">
-            <img src={'edit.gif'|ezimage} alt="Edit" title="Edit {$node.parent.name|wash()}" />
-        </a>
-        <hr>
+    	    <img src={'edit.gif'|ezimage} alt="Edit" title="Edit {$node.parent.name|wash()}" />
+		</a>
+		<hr>
     {else}
-        <img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$node.parent.name|wash()}." />
-        <hr>
+	    <img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$node.parent.name|wash()}." />
+		<hr>
     {/if}
 {elseif $node.parent.name.has_content}
 <span class="client_info_left">Organization:</span><span class="client_info_right"> {node_view_gui content_node=$node.parent view='line'}</span>
-    {if $node.parent.can_edit}
-        <a href="{concat( 'content/edit/', $node.parent.contentobject_id )|ezurl('no')}">
-            <img src={'edit.gif'|ezimage} alt="Edit" title="Edit {$node.parent.name|wash()}" />
-        </a>
-        <hr>
-    {else}
-        <img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$node.parent.name|wash()}." />
-        <hr>
-    {/if}
+	{if $node.parent.can_edit}
+	    <a href="{concat( 'content/edit/', $node.parent.contentobject_id )|ezurl('no')}">
+			<img src={'edit.gif'|ezimage} alt="Edit" title="Edit {$node.parent.name|wash()}" />
+	    </a>
+	    <hr>
+	{else}
+		<img src="{'edit-disabled.gif'|ezimage('no')}" alt="Edit" title="You do not have permission to edit {$node.parent.name|wash()}." />
+		<hr>
+	{/if}
 {/if}
 
 {if and($node.data_map.id_photo.has_content, or($node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content))}
     <span class="client_info_left">Social Media:</span><br />
-{elseif or($node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content))}
+    {elseif or($node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content))}
     <span class="client_info_left">Social Media:</span>
 {/if}
 
-{if $node.data_map.twitter_id.has_content}
-    <a href="http://twitter.com/{$node.data_map.twitter_id.content|wash()}"><img class="gradualfader" src={'images/twitter.png'|ezdesign()} alt="{$node.data_map.twitter_id.content|wash()}" height="32px" width="32px" /></a>
+{if $node.data_map.twitter_id.has_content}<a href="http://twitter.com/{$node.data_map.twitter_id.content|wash()}"><img class="gradualfader" src={'images/twitter.png'|ezdesign()} alt="{$node.data_map.twitter_id.content|wash()}" height="32px" width="32px" /></a>
 {/if}
 
 {if $node.data_map.skype_id.has_content}<a href="skype:{$node.data_map.skype_id.content|wash()}?userinfo"><img class="gradualfader" src={'images/skype.png'|ezdesign()} alt="{$node.data_map.skype_id.content|wash()}" height="32px" width="32px" /></a>{/if}
@@ -163,7 +162,6 @@
 {if or($node.data_map.twitter_id.has_content, $node.data_map.skype_id.has_content, $node.data_map.linkedin_url.has_content, $node.data_map.blog.has_content, $node.data_map.other_social_networks.has_content)}
     <hr>
 {/if}
-
 
 <span class="client_info_left">Assigned to:</span> 
 <span class="client_info_right">    

@@ -41,6 +41,7 @@
     $contentlanguage_code = "eng-US"}
 
 {def $new_entries_node = ezini( 'CRMNodeSettings', 'PutNewEntriesHereNode', 'ghcrm.ini' ) }
+
 <div class="header">
     <h2>{$tab.header|i18n( 'design/admin/dashboard/latest_content' )}</h2>
         
